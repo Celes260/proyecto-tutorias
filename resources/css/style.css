@@ -1,0 +1,25 @@
+*{
+    font-size: 25px;
+}
+.bx-option{
+    display: flex;
+    
+}
+
+.radio{
+    border-color: black;
+   margin-left: 130px;
+}
+
+.strOpcion{
+  
+}
+
+.bx-tituloPregunta{
+    display: flex;
+ 
+}
+.lblPregunta{
+    display: block;
+   
+}
