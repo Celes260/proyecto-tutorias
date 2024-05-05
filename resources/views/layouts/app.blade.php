@@ -15,11 +15,13 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/_variables.scss'])
+    @vite(['resources/sass/_sidebar.scss'])
     @vite(['resources/css/style.css'])
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md  shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                    

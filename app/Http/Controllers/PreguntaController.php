@@ -34,7 +34,7 @@ class PreguntaController extends Controller{
 
         if(count($verificar)==1){
            return view('preguntas.realizado');
-           die();
+           die();   
         }
 
         $user = Auth::user();

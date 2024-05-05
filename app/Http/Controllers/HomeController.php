@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+use app\Models\User;
 
 class HomeController extends Controller
 {
@@ -25,14 +26,22 @@ class HomeController extends Controller
      */
     public function index(){
         $user = Auth::user();
+        $alumnos = User::orderBy('id','desc')->paginate(5);
 
-        if($user->rol == "admin"){
-            
+        if($user->rol != "admin"){
+
+            return view('home',[
+                'user' => $user
+             
+            ]);
+        }else{
+            return view('user.panel',[
+                'user' => $user,
+                'alumnos' => $alumnos
+            ]);
         }
 
-        return view('home',[
-            'user' => $user
-        ]);
+       
     }
 
     public function login(){
