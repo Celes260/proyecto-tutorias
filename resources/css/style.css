@@ -1,6 +1,20 @@
 *{
     font-size: 25px;
+ 
+    
 }
+.py-4 {
+padding: 0px !important;
+ height: 90vh;
+
+}
+
+#app{
+  
+    height: 98vh;
+
+}
+
 .bx-option{
     display: flex;
     
@@ -29,44 +43,176 @@
 }
 
 /* sidebar */
-.py-4 {
-    height: 100vh;
-    
-    padding-top: 0px !important;
-    height: 88vh;
-}
+
 #container-admin{
     display: flex;
     width: 100% ;
-    height: 88vh;
+    height: 90vh;
+
+    
    
 }
-#sidebar{
-    width: 250px;
-    height: 90vh;
-    background-color: #4B70DC;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    transition: all 5s ease-in-out;
+    width: 3%;
+
+
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #fafbfe;
+}
+
+#sidebar {
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    transition: all .3s ease-in-out;
+    background-color: #0b48a4;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#sidebar.expand {
+    width: 100%;
+    min-width: 100%;
+}
+.expand {
     
-}
-#sidebar ul li {
-    list-style: none;
-    margin-bottom: 20px;
+    width: 15%;
+    min-width: 15%;
 }
 
-#sidebar ul li a{
-    text-decoration: none;
-    list-style: none;
-    color: white;
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 0.5rem;
 }
 
-#sidebar ul li a:hover{
-    text-decoration: none;
-    list-style: none;
-    color: #003480;
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    color: #FFF;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: .625rem 0.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #0e2238;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
 }
 
 /* Estilos componente alumnos de la vista administrador */
 .bx-alumnos{
     
+    width: 97%;
+
+}
+.contraer-bx-alumnos{
+    width: 85%;
 }
 
 .formAdmAl{
@@ -93,6 +239,7 @@
 .bx-table{
     height: 50vh;
    overflow-y: auto;
+   margin-left: 15px;
 
 
 }

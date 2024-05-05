@@ -35,9 +35,11 @@ class HomeController extends Controller
              
             ]);
         }else{
+           $include= "user.alumnos";
             return view('user.panel',[
                 'user' => $user,
-                'alumnos' => $alumnos
+                'alumnos' => $alumnos,
+                'include'=>$include
             ]);
         }
 
