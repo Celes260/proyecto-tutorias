@@ -2,7 +2,7 @@
   <p class="p-al">Buscar alumno por nombre o numero de control</p>
   <form action="" id="formAlumnos" class="col-md-8 formAdmAl">
     <input type="text" placeholder="Ingrese nombre o numero de control" class="form-control ">
-    <input type="submit" class="btn btn-primary">
+    <input type="submit" class="btn btn-primary" value="Buscar">
   </form>
 
   <p class="p-al">Seleccionar por grupo</p>
