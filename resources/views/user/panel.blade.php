@@ -20,10 +20,10 @@
 
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Ver alumnos</a>
+                            <a href="{{route('home')}}" class="sidebar-link">Ver alumnos</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Agregar alumno</a>
+                            <a href="{{route('agregarAlumno')}}" class="sidebar-link">Agregar alumno</a>
                         </li>
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link">Eliminar alumno</a>
@@ -88,10 +88,11 @@
        
     </div>
 
-    @include('user.alumnos')
+    @include('user.'.$include)
    
    
    
 
 </div>
-@endsection
+
+@endsection('content')

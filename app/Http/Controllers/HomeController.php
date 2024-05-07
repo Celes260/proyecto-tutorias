@@ -35,7 +35,7 @@ class HomeController extends Controller
              
             ]);
         }else{
-           $include= "user.alumnos";
+           $include= "alumnos";
             return view('user.panel',[
                 'user' => $user,
                 'alumnos' => $alumnos,
@@ -48,5 +48,15 @@ class HomeController extends Controller
 
     public function login(){
         return view ('auth.login');
+    }
+
+    public function viewNuevoAlumno(){
+        $user = Auth::user();
+        $include="agregarAlumno";
+        return view('user.panel',[
+            'user' => $user,
+            'include'=>$include
+        ]);
+
     }
 }
