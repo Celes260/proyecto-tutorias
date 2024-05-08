@@ -1,6 +1,7 @@
 
-<form class="container-funcion col-md-10 bx-panel">
-    <div class="bx-h1 p-h1">
+<form method="get" action="{{route('guardarAlumno')}}" class="container-funcion col-md-10 bx-panel">
+  @csrf  
+  <div class="bx-h1 p-h1">
         <h1 class="p-4">Registrar nuevo alumno</h1>
     </div>
     
@@ -9,25 +10,45 @@
         <div class="bx-inputs">
             
                 <label for="exampleFormControlInput1" class="form-label">Nombre(s)</label>
-                <input type="email" class="form-control input-registro" id="exampleFormControlInput1" placeholder="Ingresar nombre">
-            
+                <input type="text" name="nombre" class="form-control input-registro" id="exampleFormControlInput1" placeholder="Ingresar nombre" required>
+                
+                @if($errors->has('nombre'))
+                      <span class="invalid_feedback" role="alert">
+                             <strong>{{$errors->first('nombre')}}</strong>
+                       </span>
+                 @endif
             
                 <label for="exampleFormControlInput1" class="form-label">Apellido paterno</label>
-                <input type="email" class="form-control input-registro" id="exampleFormControlInput1" placeholder="Ingresa apellido paterno">
+                <input type="text" name="apellidoPaterno" class="form-control input-registro" id="exampleFormControlInput1" placeholder="Ingresa apellido paterno" required>
             
+                @if($errors->has('apellidoPaterno'))
+                      <span class="invalid_feedback" role="alert">
+                             <strong>{{$errors->first('apellidoPaterno')}}</strong>
+                       </span>
+                 @endif
 
                 <label for="exampleFormControlInput1" class="form-label">Apellido Materno</label>
-                <input type="email" class="form-control input-registro" id="exampleFormControlInput1" placeholder="Ingresar apellido materno">
+                <input type="text" name="apellidoMaterno" class="form-control input-registro" id="exampleFormControlInput1" placeholder="Ingresar apellido materno" required>
             
+                @if($errors->has('apellidoMaterno'))
+                      <span class="invalid_feedback" role="alert">
+                             <strong>{{$errors->first('apellidoMaterno')}}</strong>
+                       </span>
+                 @endif
+
                 <label for="exampleFormControlInput1" class="form-label">Numero de control</label>
-                <input type="email" class="form-control input-registro" id="exampleFormControlInput1" placeholder="Ingresar numero de control">
-            
+                <input type="text" name="numeroControl" class="form-control input-registro" id="exampleFormControlInput1" placeholder="Ingresar numero de control" required>
+                @if($errors->has('numeroControl'))
+                      <span class="invalid_feedback" role="alert">
+                             <strong>{{$errors->first('numeroControl')}}</strong>
+                       </span>
+                 @endif
         </div>
 
         <div class="bx-inputs">
             <label for="exampleFormControlInput1" class="form-label">Carrera</label>
-            <select class="form-select input-registro" aria-label="Default select example">
-              <option selected value="Ingeniería en Sistemas Computacionales">Ingeniería en Sistemas Computacionales</option>
+            <select class="form-select input-registro" aria-label="Default select example" name="carrera">
+              <option value="Ingeniería en Sistemas Computacionales">Ingeniería en Sistemas Computacionales</option>
               <option value="Ingeniería en innovación Agrícola">Ingeniería en innovacion Agricola</option>
               <option value="Ingeniería en Industrias Alimentarias">Ingeniería en Industrias Alimentarias</option>
               <option value="Ingeniería en Industrias Administración">Ingeniería en Administracion</option>
@@ -35,19 +56,19 @@
             </select>
 
               <label for="exampleFormControlInput1" class="form-label">Semestre</label>
-              <select class="form-select input-registro" aria-label="Default select example">
-                <option selected value="Ingeniería en Sistemas Computacionales">1º</option>
-                <option value="Ingeniería en innovación Agrícola">2º</option>
-                <option value="Ingeniería en Industrias Alimentarias">3º</option>
-                <option value="Ingeniería en Industrias Administración">4º</option>
-                <option value="Ingeniería en Mecantrónica">5º</option>
-                <option value="Ingeniería en Mecantrónica">6º</option>
-                <option value="Ingeniería en Mecantrónica">7º</option>
-                <option value="Ingeniería en Mecantrónica">8º</option>
+              <select class="form-select input-registro" aria-label="Default select example" name="semestre">
+                <option selected value="1">1º</option>
+                <option value="2">2º</option>
+                <option value="3">3º</option>
+                <option value="4">4º</option>
+                <option value="5">5º</option>
+                <option value="6">6º</option>
+                <option value="7">7º</option>
+                <option value="8">8º</option>
               </select>
 
               <label for="exampleFormControlInput1" class="form-label">Grupo</label>
-              <select class="form-select input-registro" aria-label="Default select example">
+              <select class="form-select input-registro" aria-label="Default select example" name="grupo">
 
               @foreach($grupos as $grupo){
                 <option value="{{$grupo->id}}">{{$grupo->grupo}}</option>
