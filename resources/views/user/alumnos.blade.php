@@ -1,6 +1,6 @@
 
 
-<div class="container-funcion col-md-10 bx-alumnos" id="bx-alumn">
+<div class="container-funcion col-md-10 bx-panel" id="bx-alumn">
 
   <p class="p-al">Buscar alumno por nombre o numero de control</p>
   <form action="" id="formAlumnos" class="col-md-8 formAdmAl">

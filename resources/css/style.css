@@ -206,7 +206,7 @@ a.sidebar-link:hover {
 }
 
 /* Estilos componente alumnos de la vista administrador */
-.bx-alumnos{
+.bx-panel{
     
     width: 97%;
 
@@ -246,4 +246,48 @@ a.sidebar-link:hover {
 .bx-table table{
     border-collapse: collapse;
 
+}
+
+/* Estilos registro de alumnos */
+.bx-h1{
+    display: flex;
+    width: 100%;
+    height: 12%;
+   
+    align-items:center;
+    justify-content: center;
+}
+.p-h1{
+    font-size: 15px;
+    
+}
+
+.bx-registro{
+    display: flex;
+
+    width: 100%;
+    height: 75%;
+  
+}
+.bx-inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+  
+}
+.bx-btn-registro{
+    width: 100%;
+    height: 13%;
+}
+.input-registro{
+    width: 80%;
+    border: 1px solid black;
+    
+}
+.bx-btn-registro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

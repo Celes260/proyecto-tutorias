@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\grupo;
+
 
 class UserController extends Controller{
 
@@ -11,11 +13,19 @@ class UserController extends Controller{
     }
     public function viewNuevoAlumno(){
         $user = Auth::user();
+        $grupo = grupo::all();
         $include="agregarAlumno";
         return view('user.panel',[
             'user' => $user,
-            'include'=>$include
+            'include'=>$include,
+            'grupos'=>$grupo
         ]);
+
+    }
+
+    public function guardarAlumno(){
+
+
 
     }
     

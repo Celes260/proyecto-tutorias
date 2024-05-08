@@ -50,13 +50,5 @@ class HomeController extends Controller
         return view ('auth.login');
     }
 
-    public function viewNuevoAlumno(){
-        $user = Auth::user();
-        $include="agregarAlumno";
-        return view('user.panel',[
-            'user' => $user,
-            'include'=>$include
-        ]);
-
-    }
+ 
 }

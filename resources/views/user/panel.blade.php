@@ -87,9 +87,9 @@
         </aside>
        
     </div>
-
+  
     @include('user.'.$include)
-   
+    
    
    
 
