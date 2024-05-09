@@ -58,16 +58,24 @@ class UserController extends Controller{
         $user->semestre = $request->input('semestre');
         $user->grupo_id = $request->input('grupo');
         $user->email = $email;
+        $user->contra=$cadenaAleatoria;
         $user->password = $cadenaAleatoria;
         
-        echo "<script> Alumno creado con exito </script>"; 
+        echo "<script> alert(Alumno creado con exito); </script>"; 
         $user->save();
+    }
 
+    public function viewActualizarAlumno(){
+        $user = Auth::user();
+      
+        $alumnos = User::orderBy('id','desc')->paginate(5);
+        $include= "updateAlumno";
        
-
-
-
-
+        return view('user.panel',[
+            'user' => $user,
+            'include'=>$include,
+            'alumnos'=>$alumnos
+        ]);
 
     }
     

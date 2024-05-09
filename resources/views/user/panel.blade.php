@@ -26,6 +26,9 @@
                             <a href="{{route('agregarAlumno')}}" class="sidebar-link">Agregar alumno</a>
                         </li>
                         <li class="sidebar-item">
+                            <a href="{{route('vistaActualizarAlumno')}}" class="sidebar-link">Actualizar alumno</a>
+                        </li>
+                        <li class="sidebar-item">
                             <a href="#" class="sidebar-link">Eliminar alumno</a>
                         </li>
                     </ul>

@@ -27,27 +27,16 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nombre</th>
-          <th scope="col">Apellido paterno</th>
-          <th scope="col">Apellido materno</th>
-          <th scope="col">Carrera</th>
-          <th scope="col">Grupo</th>
-          <th scope="col">Tutor</th>
-          <th scope="col">Evaluacion</th>
-          <th scope="col">Contraseña</th>
+          
         </tr>
       </thead>
       <tbody>
 
         @foreach($alumnos as $alumno)
         <tr>
-          <th scope="row">{{$alumno->numeroControl}}</th>
-          <td>{{$alumno->name}}</td>
-          <td>{{$alumno->apellidoPaterno}}</td>
-          <td>{{$alumno->apellidoMaterno}}</td>
-          <td>{{$alumno->carrera}}</td>
-          <td>{{$alumno->grupo->grupo}}</td>
-          <td><a href="">{{$alumno->grupo->tutor->nombre}} {{$alumno->grupo->tutor->apellidoPaterno}}</a></td>
-          <td>{{$alumno->contra}}</td>
+          <th scope="row">{{$alumno->numeroControl}} </th>
+          <td> <a href="">{{$alumno->name}} {{$alumno->apellidoPaterno}} {{$alumno->apellidoMaterno}}</a></td>
+        
         </tr>
         @endforeach
        
