@@ -78,5 +78,20 @@ class UserController extends Controller{
         ]);
 
     }
+
+    public function vistaUpdate($id){
+        $user = Auth::user();
+        $alumno = User::find($id);
+        $grupo = grupo::all();
+        $include= "actualizarAlumno";
+       
+        return view('user.panel',[
+            'user' => $user,
+            'include'=>$include,
+            'alumno'=>$alumno,
+            'grupos'=>$grupo
+        ]);
+
+    }
     
 }

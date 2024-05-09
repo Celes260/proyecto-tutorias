@@ -35,7 +35,7 @@
         @foreach($alumnos as $alumno)
         <tr>
           <th scope="row">{{$alumno->numeroControl}} </th>
-          <td> <a href="">{{$alumno->name}} {{$alumno->apellidoPaterno}} {{$alumno->apellidoMaterno}}</a></td>
+          <td> <a href="{{route('viewUpdate',[$id=$alumno->id])}}">{{$alumno->name}} {{$alumno->apellidoPaterno}} {{$alumno->apellidoMaterno}}</a></td>
         
         </tr>
         @endforeach
