@@ -1,5 +1,5 @@
 
-<form method="get" action="{{route('guardarAlumno')}}" class="container-funcion col-md-10 bx-panel">
+<form method="post" action="{{route('actualizandoAlumno',[$id=$alumno->id])}}" class="container-funcion col-md-10 bx-panel">
   @csrf  
   <div class="bx-h1 p-h1">
         <h1 class="p-4">Actualizar alumno</h1>
@@ -71,9 +71,9 @@
 
               <label for="exampleFormControlInput1" class="form-label">Grupo</label>
               <select class="form-select input-registro" aria-label="Default select example" name="grupo">
-
+              <option selected value="{{$alumno->grupo->id}}">{{$alumno->grupo->grupo}}</option>
               @foreach($grupos as $grupo){
-                <option selected value="{{$alumno->grupo->grupo}}">{{$alumno->grupo->grupo}}</option>
+                
                 <option value="{{$grupo->id}}">{{$grupo->grupo}}</option>
               }
               @endforeach

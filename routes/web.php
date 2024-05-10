@@ -22,6 +22,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/preguntas', [App\Http\Controllers\PreguntaController::class, 'preguntas'])->name('preguntas');
 Route::post('/enviarPreguntas', [App\Http\Controllers\PreguntaController::class, 'guardarPreguntas'])->name('preguntas.enviar');
 Route::get('/agregarAlumno', [App\Http\Controllers\UserController::class, 'viewNuevoAlumno'])->name('agregarAlumno');
-Route::get('/guardarAlumno', [App\Http\Controllers\UserController::class, 'guardarAlumno'])->name('guardarAlumno');
+Route::POST('/guardarAlumno', [App\Http\Controllers\UserController::class, 'guardarAlumno'])->name('guardarAlumno');
 Route::get('/vistaActualizarAlumno', [App\Http\Controllers\UserController::class, 'viewActualizarAlumno'])->name('vistaActualizarAlumno');
 Route::get('/viewUpdate/{id}', [App\Http\Controllers\UserController::class, 'vistaUpdate'])->name('viewUpdate');
+Route::post('/actualizandoAlumno/{id}', [App\Http\Controllers\UserController::class, 'actualizandoAlumno'])->name('actualizandoAlumno');
+
+Route::get('/vistaEliminarAlumno', [App\Http\Controllers\UserController::class, 'vistaEliminarAlumno'])->name('vistaEliminarAlumno');
+Route::get('/eliminarAlumno/{id}', [App\Http\Controllers\UserController::class, 'eliminarAlumno'])->name('eliminarAlumno');

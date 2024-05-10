@@ -2,7 +2,10 @@
 
 <div class="container-funcion col-md-10 bx-panel" id="bx-alumn">
 
+<div class="bx-message">
   <p class="p-al">Buscar alumno por nombre o numero de control</p>
+  @include('layouts.message')
+</div>
   <form action="" id="formAlumnos" class="col-md-8 formAdmAl">
     <input type="text" placeholder="Ingrese nombre o numero de control" class="form-control ">
     <input type="submit" class="btn btn-primary" value="Buscar">

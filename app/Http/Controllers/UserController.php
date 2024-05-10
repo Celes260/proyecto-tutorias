@@ -60,9 +60,8 @@ class UserController extends Controller{
         $user->email = $email;
         $user->contra=$cadenaAleatoria;
         $user->password = $cadenaAleatoria;
-        
-        echo "<script> alert(Alumno creado con exito); </script>"; 
         $user->save();
+        return redirect()->action([UserController::class, 'viewNuevoAlumno'])->with('message', 'alumno agregado correctamente');
     }
 
     public function viewActualizarAlumno(){
@@ -91,6 +90,72 @@ class UserController extends Controller{
             'alumno'=>$alumno,
             'grupos'=>$grupo
         ]);
+
+    }
+
+    public function actualizandoAlumno(Request $request, $id){
+        
+      
+        $validate = $this->validate($request,[
+            'nombre' => ['required', 'string', 'max:255'],
+            'apellidoPaterno' => ['required', 'string', 'max:255'],
+            'apellidoMaterno' => ['required', 'string', 'max:255'],
+            'numeroControl' => ['required', 'max:255', 'unique:users,numeroControl,'.$id],
+            'carrera' => ['required', 'string'],
+            'semestre' => ['required'],
+            'grupo' => ['required']
+
+            
+        
+
+        ]);
+        echo "<script> alert('Alumno actualizado con exito'); </script>";
+       
+        $email = $request->input('numeroControl')."@itstacambaro.edu.mx";
+        $user = User::find($id);
+        $user->name = $request->input('nombre');
+        $user->apellidoPaterno = $request->input('apellidoPaterno');
+        $user->apellidoMaterno = $request->input('apellidoMaterno');
+        $user->numeroControl = $request->input('numeroControl');
+        $user->carrera = $request->input('carrera');
+        $user->semestre = $request->input('semestre');
+        $user->email = $email;
+
+        $user->grupo_id = $request->input('grupo');
+       
+        $user->update();
+        
+        return redirect()->action([UserController::class, 'viewActualizarAlumno'])->with('message', 'Usuario actualizado correctamente');
+        
+        
+
+    }
+
+    public function vistaEliminarAlumno(){
+        $user = Auth::user();
+        $alumno = User::all();
+      
+        $include= "vistaEliminarAlumno";
+       
+        return view('user.panel',[
+            'user' => $user,
+            'include'=>$include,
+            'alumnos'=>$alumno
+       
+        ]);
+
+        
+
+    }
+
+    public function eliminarAlumno($id){
+        $user= User::find($id);
+
+        if (!$user) {
+            return redirect()->action([UserController::class, 'vistaEliminarAlumno'])->with('message', 'Usuario no encontrado');
+        }
+        $user->delete();
+        return redirect()->action([UserController::class, 'vistaEliminarAlumno'])->with('message', 'Alumno eliminado correctamente');
 
     }
     

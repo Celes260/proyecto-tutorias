@@ -29,7 +29,7 @@
                             <a href="{{route('vistaActualizarAlumno')}}" class="sidebar-link">Actualizar alumno</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Eliminar alumno</a>
+                            <a href="{{ route('vistaEliminarAlumno') }}" class="sidebar-link">Eliminar alumno</a>
                         </li>
                     </ul>
                 </li>

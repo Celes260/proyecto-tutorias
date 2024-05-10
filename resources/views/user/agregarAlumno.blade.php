@@ -1,9 +1,10 @@
 
-<form method="get" action="{{route('guardarAlumno')}}" class="container-funcion col-md-10 bx-panel">
+<form method="post" action="{{route('guardarAlumno')}}" class="container-funcion col-md-10 bx-panel">
   @csrf  
-  <div class="bx-h1 p-h1">
-        <h1 class="p-4">Registrar nuevo alumno</h1>
-    </div>
+  <div class="bx-message bx-h1">
+      <h1 class="p-4">Registrar alumnos</h1>
+      @include('layouts.message')
+</div>
     
 
     <div class="bx-registro">
