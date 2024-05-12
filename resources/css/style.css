@@ -224,6 +224,16 @@ a.sidebar-link:hover {
     width: 97%;
 
 }
+.bx-filtro{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    
+}
+.bx-filtro-lb{
+    width: 50%;
+    
+}
 .contraer-bx-alumnos{
     width: 85%;
 }
@@ -249,10 +259,11 @@ a.sidebar-link:hover {
 .inp-gp{
     border: 1px solid black;
 }
-.bx-table{
+.bx-tableContainer{
     height: 50vh;
    overflow-y: auto;
    margin-left: 15px;
+  
 
 
 }

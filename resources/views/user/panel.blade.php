@@ -20,7 +20,7 @@
 
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                            <a href="{{route('home')}}" class="sidebar-link">Ver alumnos</a>
+                            <a href="{{route('mostrarAlumnos',['carrera'=>'Ingeniería en Sistemas Computacionales', 'grupo'=>'3'])}}" class="sidebar-link">Ver alumnos</a>
                         </li>
                         <li class="sidebar-item">
                             <a href="{{route('agregarAlumno')}}" class="sidebar-link">Agregar alumno</a>

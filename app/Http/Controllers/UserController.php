@@ -11,6 +11,40 @@ class UserController extends Controller{
     public function __construct(){
         $this->middleware('auth');
     }
+
+    public function mostrarAlumnos($carreraa, $grupoo=null){
+        $user = Auth::user();
+        $carrera = $carreraa;
+        $group = $grupoo;
+        $alumnos ="";
+
+        if($group==null){
+            $alumnos = User::all()->where('carrera', $carrera);
+        }else{
+
+            $alumnos = User::all()->where('carrera', $carrera)->where('grupo_id',$group);
+        }
+
+        $grupo = grupo::all()->where('carrera',$carrera);
+
+        if($user->rol != "admin"){
+
+            return view('home',[
+                'user' => $user
+                
+            ]);
+        }else{
+           $include= "alumnos";
+            return view('user.panel',[
+                'user' => $user,
+                'alumnos' => $alumnos,
+                'include'=>$include,
+                'grupos'=>$grupo,
+                'carrera'=>$carrera
+            ]);
+        }
+    }
+
     public function viewNuevoAlumno(){
         $user = Auth::user();
         $grupo = grupo::all();

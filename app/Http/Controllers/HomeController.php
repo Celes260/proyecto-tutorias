@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use app\Models\User;
+use App\Models\grupo;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,8 @@ class HomeController extends Controller
      */
     public function index(){
         $user = Auth::user();
-        $alumnos = User::orderBy('id','desc')->paginate(5);
+        $alumnos = User::all()->where('carrera','Ingeniería en Sistemas Computacionales');
+        $grupo = grupo::all();
 
         if($user->rol != "admin"){
 
@@ -39,13 +41,14 @@ class HomeController extends Controller
             return view('user.panel',[
                 'user' => $user,
                 'alumnos' => $alumnos,
-                'include'=>$include
+                'include'=>$include,
+                'grupos' => $grupo
             ]);
         }
 
        
     }
-
+    
     public function login(){
         return view ('auth.login');
     }
