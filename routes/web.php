@@ -20,6 +20,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/mostrarAlumnos/{carrera}/{grupo?}', [App\Http\Controllers\UserController::class, 'mostrarAlumnos'])->name('mostrarAlumnos');
+Route::get('/buscarAlumno/{carrera}', [App\Http\Controllers\UserController::class, 'buscarAlumno'])->name('buscarAlumno');
 
 Route::get('/preguntas', [App\Http\Controllers\PreguntaController::class, 'preguntas'])->name('preguntas');
 Route::post('/enviarPreguntas', [App\Http\Controllers\PreguntaController::class, 'guardarPreguntas'])->name('preguntas.enviar');

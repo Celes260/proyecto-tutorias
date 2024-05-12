@@ -45,6 +45,28 @@ class UserController extends Controller{
         }
     }
 
+    public function buscarAlumno(Request $request, $carreraa){
+        $carrera = $carreraa;
+        $user = Auth::user();
+        $search = $request->input('search');
+
+        $grupo = grupo::all()->where('carrera',$carrera);
+        $alumno = User::where('numeroControl', 'LIKE', '%'.$search.'%')->orWhere('name', 'LIKE', '%'.$search.'%')->orderBy('id','desc')->get();
+
+
+
+        $include= "alumnos";
+            return view('user.panel',[
+                'user' => $user,
+                'alumnos' => $alumno,
+                'include'=>$include,
+                'grupos'=>$grupo,
+                'carrera'=>$carrera
+            ]);
+
+
+    }
+
     public function viewNuevoAlumno(){
         $user = Auth::user();
         $grupo = grupo::all();

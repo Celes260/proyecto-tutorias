@@ -14,7 +14,7 @@ var selectedOptionCarrera = "";
 
 document.getElementById('select-carrera').addEventListener('change',function(){
     selectedOptionCarrera = this.value;
-    alert(selectedOptionCarrera); 
+   
     
      url = "http://192.168.120.1/proyecto-tutorias/public/mostrarAlumnos/" + selectedOptionCarrera;
     window.location.href = url;
