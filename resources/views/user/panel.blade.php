@@ -20,17 +20,13 @@
 
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                            <a href="{{route('mostrarAlumnos',['carrera'=>'Ingeniería en Sistemas Computacionales', 'grupo'=>'3'])}}" class="sidebar-link">Ver alumnos</a>
+                            <a href="{{route('mostrarAlumnos',['carrera'=>'Ingeniería en Sistemas Computacionales'])}}" class="sidebar-link">Ver alumnos</a>
                         </li>
                         <li class="sidebar-item">
                             <a href="{{route('agregarAlumno')}}" class="sidebar-link">Agregar alumno</a>
                         </li>
-                        <li class="sidebar-item">
-                            <a href="{{route('vistaActualizarAlumno')}}" class="sidebar-link">Actualizar alumno</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="{{ route('vistaEliminarAlumno') }}" class="sidebar-link">Eliminar alumno</a>
-                        </li>
+                        
+                        
                     </ul>
                 </li>
 

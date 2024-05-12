@@ -120,16 +120,31 @@ class UserController extends Controller{
         return redirect()->action([UserController::class, 'viewNuevoAlumno'])->with('message', 'alumno agregado correctamente');
     }
 
-    public function viewActualizarAlumno(){
+    public function viewActualizarAlumno($carreraa, $grupoo=null){
         $user = Auth::user();
+        $user = Auth::user();
+        $carrera = $carreraa;
+        $group = $grupoo;
+        $alumnos ="";
+
+        if($group==null){
+            $alumnos = User::all()->where('carrera', $carrera);
+        }else{
+
+            $alumnos = User::all()->where('carrera', $carrera)->where('grupo_id',$group);
+        }
+
+        $grupo = grupo::all()->where('carrera',$carrera);
       
-        $alumnos = User::orderBy('id','desc')->paginate(5);
+    
         $include= "updateAlumno";
        
         return view('user.panel',[
             'user' => $user,
+            'alumnos' => $alumnos,
             'include'=>$include,
-            'alumnos'=>$alumnos
+            'grupos'=>$grupo,
+            'carrera'=>$carrera
         ]);
 
     }
@@ -181,7 +196,7 @@ class UserController extends Controller{
        
         $user->update();
         
-        return redirect()->action([UserController::class, 'viewActualizarAlumno'])->with('message', 'Usuario actualizado correctamente');
+        return redirect()->action([HomeController::class, 'index'])->with('message', 'Usuario actualizado correctamente');
         
         
 
@@ -211,7 +226,7 @@ class UserController extends Controller{
             return redirect()->action([UserController::class, 'vistaEliminarAlumno'])->with('message', 'Usuario no encontrado');
         }
         $user->delete();
-        return redirect()->action([UserController::class, 'vistaEliminarAlumno'])->with('message', 'Alumno eliminado correctamente');
+        return redirect()->action([HomeController::class, 'index'])->with('message', 'Alumno eliminado correctamente');
 
     }
     

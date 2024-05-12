@@ -35,15 +35,7 @@
       </select>
     </form>
 
-    <script>
 
-
-    
-    </script>
-
-   
-
-    
     <form action="" class="col-md-5 formAdmAl">
       
       <select id="select-grupo" class="form-select col-m inp-gp" aria-label="Default select example">
@@ -58,6 +50,7 @@
     </form>
 
   </div>
+  
 
   <div class="bx-tableContainer">
 
@@ -73,6 +66,7 @@
           <th scope="col">Tutor</th>
           <th scope="col">Evaluacion</th>
           <th scope="col">Contraseña</th>
+          <th scope="col">Eliminar</th>
         </tr>
       </thead>
       <tbody>
@@ -80,7 +74,7 @@
         @foreach($alumnos as $alumno)
         <tr>
           <th scope="row">{{$alumno->numeroControl}}</th>
-          <td>{{$alumno->name}}</td>
+          <td><a href="{{route('viewUpdate',[$id=$alumno->id])}}">{{$alumno->name}} </a></td>
           <td>{{$alumno->apellidoPaterno}}</td>
           <td>{{$alumno->apellidoMaterno}}</td>
           <td>{{$alumno->carrera}}</td>
@@ -88,6 +82,31 @@
           <td><a href="">{{$alumno->grupo->tutor->nombre}} {{$alumno->grupo->tutor->apellidoPaterno}}</a></td>
           <td></td>
           <td>{{$alumno->contra}}</td>
+          <td>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{$alumno->id}}">
+            Eliminar
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal{{$alumno->id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{$alumno->id}}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel{{$alumno->id}}">Borrar alumno</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro que deseas borrar a {{$alumno->name}} {{$alumno->apellidoPaterno}} {{$alumno->apellidoMaterno}} ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <a href="{{route('eliminarAlumno',[$alumno->id])}}" class="btn btn-danger">Borrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          </td>
         </tr>
         @endforeach
        

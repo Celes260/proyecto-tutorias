@@ -12,6 +12,7 @@ hamBurger.addEventListener("click", function () {
 
 var selectedOptionCarrera = "";
 
+//buscador para la vista mostrar alumnos
 document.getElementById('select-carrera').addEventListener('change',function(){
     selectedOptionCarrera = this.value;
    
@@ -41,6 +42,9 @@ document.getElementById('select-carrera').addEventListener('change',function(){
     
 
 });
+
+//termina buscador para mostrar alumnos
+
               
       
 

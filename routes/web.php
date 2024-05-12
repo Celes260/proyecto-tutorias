@@ -26,7 +26,7 @@ Route::get('/preguntas', [App\Http\Controllers\PreguntaController::class, 'pregu
 Route::post('/enviarPreguntas', [App\Http\Controllers\PreguntaController::class, 'guardarPreguntas'])->name('preguntas.enviar');
 Route::get('/agregarAlumno', [App\Http\Controllers\UserController::class, 'viewNuevoAlumno'])->name('agregarAlumno');
 Route::POST('/guardarAlumno', [App\Http\Controllers\UserController::class, 'guardarAlumno'])->name('guardarAlumno');
-Route::get('/vistaActualizarAlumno', [App\Http\Controllers\UserController::class, 'viewActualizarAlumno'])->name('vistaActualizarAlumno');
+
 Route::get('/viewUpdate/{id}', [App\Http\Controllers\UserController::class, 'vistaUpdate'])->name('viewUpdate');
 Route::post('/actualizandoAlumno/{id}', [App\Http\Controllers\UserController::class, 'actualizandoAlumno'])->name('actualizandoAlumno');
 
