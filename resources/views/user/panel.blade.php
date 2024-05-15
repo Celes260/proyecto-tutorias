@@ -55,10 +55,10 @@
                     
                     <ul id="tutor" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Ver tutores</a>
+                            <a href="{{ route('mostrarTutores',['carrera'=>'Ingeniería en Sistemas Computacionales']) }}" class="sidebar-link">Ver tutores</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Agregar tutor</a>
+                            <a href="{{ route('agregarTutor') }}" class="sidebar-link">Agregar tutor</a>
                         </li>
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link">Eliminar tutor</a>

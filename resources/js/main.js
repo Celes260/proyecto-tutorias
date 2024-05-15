@@ -45,6 +45,15 @@ document.getElementById('select-carrera').addEventListener('change',function(){
 
 //termina buscador para mostrar alumnos
 
+document.getElementById('select-carrera-tutores').addEventListener('change',function(){
+  selectedOptionCarrera = this.value;
+  var urlTutores = "http://192.168.120.1/proyecto-tutorias/public/mostrarTutores"
+  urlTutores += "/" + selectedOptionCarrera;
+  window.location.href = urlTutores;
+
+  
+
+});
               
       
 

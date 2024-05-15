@@ -25,7 +25,7 @@ class UserController extends Controller{
             $alumnos = User::all()->where('carrera', $carrera)->where('grupo_id',$group);
         }
 
-        $grupo = grupo::all()->where('carrera',$carrera);
+        $grupo = grupo::all()->where('carrera', $carrera);
 
         if($user->rol != "admin"){
 
@@ -106,6 +106,7 @@ class UserController extends Controller{
 
 
         $user = new User();
+        
         $user->name = $request->input('nombre');
         $user->apellidoPaterno = $request->input('apellidoPaterno');
         $user->apellidoMaterno = $request->input('apellidoMaterno');
@@ -165,8 +166,7 @@ class UserController extends Controller{
     }
 
     public function actualizandoAlumno(Request $request, $id){
-        
-      
+           
         $validate = $this->validate($request,[
             'nombre' => ['required', 'string', 'max:255'],
             'apellidoPaterno' => ['required', 'string', 'max:255'],
@@ -175,9 +175,6 @@ class UserController extends Controller{
             'carrera' => ['required', 'string'],
             'semestre' => ['required'],
             'grupo' => ['required']
-
-            
-        
 
         ]);
         echo "<script> alert('Alumno actualizado con exito'); </script>";
@@ -229,5 +226,7 @@ class UserController extends Controller{
         return redirect()->action([HomeController::class, 'index'])->with('message', 'Alumno eliminado correctamente');
 
     }
+
+
     
 }

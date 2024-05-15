@@ -15,6 +15,9 @@
     margin-top: 10px;
     
 }
+.hidden{
+    display: none;
+}
 
 .py-4 {
 padding: 0px !important;
@@ -311,6 +314,14 @@ a.sidebar-link:hover {
     
 }
 .bx-btn-registro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos agregar tutor */
+
+.bx-registro-tutores{
     display: flex;
     align-items: center;
     justify-content: center;
