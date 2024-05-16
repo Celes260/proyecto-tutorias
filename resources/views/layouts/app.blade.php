@@ -26,7 +26,11 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md  shadow-sm">
-            <div class="container">
+            <div class="container bx-nav">
+                <div class="bx-logo">
+                    <img src="{{asset('img/logoTec.png')}}" class="logoTec" alt="">
+
+                </div>
                 <a class="navbar-brand" href="{{ url('/') }}">
                    
                 </a>

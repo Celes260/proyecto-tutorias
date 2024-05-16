@@ -37,6 +37,12 @@
                         <span>Grupos</span>
                     </a>
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                            <a href="#" class="sidebar-link " >
+                                Mostrar grupos
+                            </a>
+                           
+                        </li>
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link " >
                                 Añadir grupo
@@ -60,9 +66,7 @@
                         <li class="sidebar-item">
                             <a href="{{ route('agregarTutor') }}" class="sidebar-link">Agregar tutor</a>
                         </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Eliminar tutor</a>
-                        </li>
+                        
                     </ul>
                 </li>
                 

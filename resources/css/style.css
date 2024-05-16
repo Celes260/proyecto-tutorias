@@ -30,6 +30,28 @@ padding: 0px !important;
     height: 98vh;
 
 }
+.bx-nav{
+   
+}
+
+.nav-link{
+    color: white    ;
+}
+
+.bx-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    width: 100%;
+}
+
+.logoTec{
+    width: 110px;
+    height: 110px;
+    
+}
+
 
 .bx-option{
     display: flex;
@@ -55,6 +77,8 @@ padding: 0px !important;
 }
 .navbar{
     background-color: #003480;
+    padding: 0px;
+
 
 }
 

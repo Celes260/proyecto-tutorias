@@ -177,10 +177,12 @@ class UserController extends Controller{
             'grupo' => ['required']
 
         ]);
+
         echo "<script> alert('Alumno actualizado con exito'); </script>";
        
         $email = $request->input('numeroControl')."@itstacambaro.edu.mx";
         $user = User::find($id);
+        
         $user->name = $request->input('nombre');
         $user->apellidoPaterno = $request->input('apellidoPaterno');
         $user->apellidoMaterno = $request->input('apellidoMaterno');
