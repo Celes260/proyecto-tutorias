@@ -41,6 +41,8 @@ Route::get('/eliminarAlumno/{id}', [App\Http\Controllers\UserController::class, 
 
 Route::get('/agregarTutor', [App\Http\Controllers\TutorController::class, 'viewAgregarTutor'])->name('agregarTutor');
 Route::post('/guardarTutor', [App\Http\Controllers\TutorController::class, 'guardarTutor'])->name('guardarTutor');
-Route::get('/mostrarTutores/{carrera}', [App\Http\Controllers\TutorController::class, 'viewMostrarTutores'])->name('mostrarTutores');
+Route::get('/mostrarTutores/{carrera?}', [App\Http\Controllers\TutorController::class, 'viewMostrarTutores'])->name('mostrarTutores');
 Route::get('/buscarTutor', [App\Http\Controllers\TutorController::class, 'buscarTutor'])->name('buscarTutor');
 Route::get('/eliminarTutor/{id}', [App\Http\Controllers\TutorController::class, 'eliminarTutor'])->name('eliminarTutor');
+Route::get('/vistaActualizarTutor/{id}', [App\Http\Controllers\TutorController::class, 'viewUpdateTutor'])->name('viewUpdateTutor');
+Route::post('/actualizarAlumno/{id}', [App\Http\Controllers\TutorController::class, 'actualizarTutor'])->name('actualizarTutor');

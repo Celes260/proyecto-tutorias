@@ -23,6 +23,14 @@ class TutorController extends Controller{
     }
 
     public function guardarTutor(Request $request){
+        $validate = $this->validate($request,[
+            'nombre' => ['required', 'string', 'max:255'],
+            'apellidoPaterno' => ['required', 'string', 'max:255'],
+            'apellidoMaterno' => ['required', 'string', 'max:255'],
+            'numeroControl' => ['required', 'max:255', 'unique:users']
+        
+        ]);
+
         $tutor = new tutor();
         
         $nombre = $request->input('nombre');
@@ -40,7 +48,7 @@ class TutorController extends Controller{
 
     }
 
-    public function viewMostrarTutores($carreraa){
+    public function viewMostrarTutores($carreraa = "Ingeniería en Sistemas Computacionales"){
         $carrera = $carreraa;
         $grupos = grupo::all()->where('carrera', $carrera);
 
@@ -95,8 +103,40 @@ class TutorController extends Controller{
         return redirect()->action([HomeController::class, 'index'])->with('message', 'Alumno eliminado correctamente');
 
     }
-    public function viewUpdateTutor(){
+    public function viewUpdateTutor($id){
+        $tutor = tutor::find($id);
+
+        $include= "actualizarTutor";
+        return view('user.panel',[
+            'include'=>$include,
+            'tutor'=>$tutor
+            
+       
+        ]);  
+
+    }
+
+    public function actualizarTutor(Request $request, $id){
+        $validate = $this->validate($request,[
+            'nombre' => ['required', 'string', 'max:255'],
+            'apellidoPaterno' => ['required', 'string', 'max:255'],
+            'apellidoMaterno' => ['required', 'string', 'max:255'],
+            'numeroControl' => ['required', 'max:255', 'unique:users,numeroControl,'.$id]
+          
+
+        ]);
+
+        $tutor = tutor::find($id);
         
+        $tutor->nombre=$request->input('nombre');    
+        $tutor->apellidoPaterno=$request->input('apellidoPaterno');    
+        $tutor->apellidoMaterno=$request->input('apellidoMaterno');    
+        $tutor->numeroControl=$request->input('numeroControl'); 
+        
+        $tutor->update();
+
+        return redirect()->action([TutorController::class, 'viewMostrarTutores'])->with('message', 'Usuario actualizado');
+
     }
     
 }

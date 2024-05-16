@@ -62,7 +62,7 @@
         @foreach($grupos as $alumno)
         <tr>
           <th scope="row">{{$alumno->tutor->numeroControl}}</th>
-          <td><a href="{{route('viewUpdate',[$id=$alumno->tutor->id])}}">{{$alumno->tutor->nombre}} </a></td>
+          <td><a href="{{route('viewUpdateTutor',[$id=$alumno->tutor->id])}}">{{$alumno->tutor->nombre}} </a></td>
           <td>{{$alumno->tutor->apellidoPaterno}}</td>
           <td>{{$alumno->tutor->apellidoMaterno}}</td>
           <td>{{$alumno->grupo}}</td>
