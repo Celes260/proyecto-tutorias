@@ -12,12 +12,11 @@ use App\Models\grupo;
 use App\Models\tutor;
 
 Route::get('/hola', function () {
-   $tutor = new tutor();
-   $tutor->nombre = "arriaga";
-   $tutor->apellidoPaterno = "oscar";
-   $tutor->apellidoMaterno = "Alvarez";
+   $grupo = new grupo();
+   $grupo->grupo = "arriaga";
   
-   $tutor->save();
+  
+   $grupo->save();
 
 });
 
@@ -46,3 +45,6 @@ Route::get('/buscarTutor', [App\Http\Controllers\TutorController::class, 'buscar
 Route::get('/eliminarTutor/{id}', [App\Http\Controllers\TutorController::class, 'eliminarTutor'])->name('eliminarTutor');
 Route::get('/vistaActualizarTutor/{id}', [App\Http\Controllers\TutorController::class, 'viewUpdateTutor'])->name('viewUpdateTutor');
 Route::post('/actualizarAlumno/{id}', [App\Http\Controllers\TutorController::class, 'actualizarTutor'])->name('actualizarTutor');
+
+Route::get('/viewAgregarGrupo', [App\Http\Controllers\GrupoController::class, 'viewAgregarGrupo'])->name('viewAgregarGrupo');
+Route::post('/agregarGrupo', [App\Http\Controllers\GrupoController::class, 'agregarGrupo'])->name('agregarGrupo');

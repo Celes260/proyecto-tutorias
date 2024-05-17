@@ -27,7 +27,7 @@ class TutorController extends Controller{
             'nombre' => ['required', 'string', 'max:255'],
             'apellidoPaterno' => ['required', 'string', 'max:255'],
             'apellidoMaterno' => ['required', 'string', 'max:255'],
-            'numeroControl' => ['required', 'max:255', 'unique:users']
+            'numeroControl' => ['required', 'max:255', 'unique:tutores']
         
         ]);
 
@@ -122,7 +122,7 @@ class TutorController extends Controller{
             'apellidoPaterno' => ['required', 'string', 'max:255'],
             'apellidoMaterno' => ['required', 'string', 'max:255'],
             'numeroControl' => ['required', 'max:255', 'unique:users,numeroControl,'.$id]
-          
+            
 
         ]);
 
@@ -138,5 +138,9 @@ class TutorController extends Controller{
         return redirect()->action([TutorController::class, 'viewMostrarTutores'])->with('message', 'Usuario actualizado');
 
     }
+
+    
+
+    
     
 }
