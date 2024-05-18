@@ -72,15 +72,17 @@
       <tbody>
 
         @foreach($alumnos as $alumno)
+       
+
         <tr>
           <th scope="row">{{$alumno->numeroControl}}</th>
           <td><a href="{{route('viewUpdate',[$id=$alumno->id])}}">{{$alumno->name}} </a></td>
           <td>{{$alumno->apellidoPaterno}}</td>
           <td>{{$alumno->apellidoMaterno}}</td>
           <td>{{$alumno->carrera}}</td>
-          <td>{{$alumno->grupo->grupo}}</td>
+          <td><a href="{{ route('viewActualizarGrupo',[$alumno->grupo_id]) }}">{{$alumno->grupo->grupo}}</a></td>
           <td><a href="">{{$alumno->grupo->tutor->nombre}} {{$alumno->grupo->tutor->apellidoPaterno}}</a></td>
-          <td></td>
+          <td>{{$alumno->estadoEvaluacion}}</td>
           <td>{{$alumno->contra}}</td>
           <td>
           <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{$alumno->id}}">

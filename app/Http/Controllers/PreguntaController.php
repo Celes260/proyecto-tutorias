@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\pregunta;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\User;
 class PreguntaController extends Controller{
 
     public function __construct(){
@@ -37,7 +37,7 @@ class PreguntaController extends Controller{
            die();   
         }
 
-        $user = Auth::user();
+      
 
         $indicadorA = $request->input('indicadorA');
         $indicadorB = $request->input('indicadorB');
@@ -46,7 +46,8 @@ class PreguntaController extends Controller{
         $comentarios = $request->input('comentarios');
 
         $pregunta = new pregunta();
-        
+    
+
         $pregunta->user_id = $user->id;
         $pregunta->tutor_id = $user->grupo->tutor->id;
         $pregunta->indicadorA = $indicadorA;
@@ -54,9 +55,12 @@ class PreguntaController extends Controller{
         $pregunta->indicadorC = $indicadorC;
         $pregunta->indicadorD = $indicadorD;
         $pregunta->comentarios = $comentarios;
+        $pregunta->estado = "realizada";
         $pregunta->save();
+       
 
-        
+        $user->estadoEvaluacion = "realizada";
+        $user->update();
         return view('preguntas.realizado');
       
 

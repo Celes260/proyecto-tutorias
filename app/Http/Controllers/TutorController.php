@@ -135,7 +135,7 @@ class TutorController extends Controller{
         
         $tutor->update();
 
-        return redirect()->action([TutorController::class, 'viewMostrarTutores'])->with('message', 'Usuario actualizado');
+        return redirect()->route('mostrarAlumnos',['Ingeniería en Sistemas Computacionales']);
 
     }
 

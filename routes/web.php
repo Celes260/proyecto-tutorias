@@ -48,3 +48,6 @@ Route::post('/actualizarAlumno/{id}', [App\Http\Controllers\TutorController::cla
 
 Route::get('/viewAgregarGrupo', [App\Http\Controllers\GrupoController::class, 'viewAgregarGrupo'])->name('viewAgregarGrupo');
 Route::post('/agregarGrupo', [App\Http\Controllers\GrupoController::class, 'agregarGrupo'])->name('agregarGrupo');
+Route::get('/viewActualizarGrupo/{id}', [App\Http\Controllers\GrupoController::class, 'viewActualizarGrupo'])->name('viewActualizarGrupo');
+Route::get('/actualizarGrupo/{id}', [App\Http\Controllers\GrupoController::class, 'actualizarGrupo'])->name('actualizarGrupo');
+Route::get('/confirmarEvaluacion', [App\Http\Controllers\PreguntaController::class, 'confirmarEvaluacion'])->name('confirmarEvaluacion');
