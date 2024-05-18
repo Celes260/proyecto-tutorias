@@ -350,3 +350,14 @@ a.sidebar-link:hover {
     align-items: center;
     justify-content: center;
 }
+
+/* estilos interfaz graficas de evaluacion */
+.bx-container-grafica{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+   
+}
+

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\grupo;
 use App\Models\tutor;
+use App\Models\User;
 
 class GrupoController extends Controller{
 

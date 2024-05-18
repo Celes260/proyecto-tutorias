@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\tutor;
 use App\Models\grupo;
+use App\Models\pregunta;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -136,6 +137,29 @@ class TutorController extends Controller{
         $tutor->update();
 
         return redirect()->route('mostrarAlumnos',['Ingeniería en Sistemas Computacionales']);
+
+    }
+
+    public function verEvaluacion(){
+        $include= "vistaEvaluacion";
+
+        $A5 = pregunta::where('tutor_id',10)->where('indicadorA', 5)->count();
+        $A4 = pregunta::where('tutor_id',10)->where('indicadorA', 4)->count();
+        $A3 = pregunta::where('tutor_id',10)->where('indicadorA', 3)->count();
+        $A2 = pregunta::where('tutor_id',10)->where('indicadorA', 2)->count();
+        $A1 = pregunta::where('tutor_id',10)->where('indicadorA', 1)->count();
+
+        return view('user.panel',[
+            'include'=>$include,
+            'A5'=>$A5,
+            'A4'=>$A4,
+            'A3'=>$A3,
+            'A2'=>$A2,
+            'A1'=>$A1,
+            
+            
+       
+        ]);  
 
     }
 

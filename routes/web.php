@@ -51,3 +51,4 @@ Route::post('/agregarGrupo', [App\Http\Controllers\GrupoController::class, 'agre
 Route::get('/viewActualizarGrupo/{id}', [App\Http\Controllers\GrupoController::class, 'viewActualizarGrupo'])->name('viewActualizarGrupo');
 Route::get('/actualizarGrupo/{id}', [App\Http\Controllers\GrupoController::class, 'actualizarGrupo'])->name('actualizarGrupo');
 Route::get('/confirmarEvaluacion', [App\Http\Controllers\PreguntaController::class, 'confirmarEvaluacion'])->name('confirmarEvaluacion');
+Route::get('/verEvaluacion/{id}', [App\Http\Controllers\TutorController::class, 'verEvaluacion'])->name('verEvaluacion');

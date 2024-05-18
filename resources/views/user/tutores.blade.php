@@ -53,6 +53,7 @@
           <th scope="col">Apellido paterno</th>
           <th scope="col">Apellido materno</th>
           <th scope="col">Grupo</th>
+          <th scope="col">ver evaluacion</th>
           
           <th scope="col">Eliminar</th>
         </tr>
@@ -66,6 +67,7 @@
           <td>{{$alumno->tutor->apellidoPaterno}}</td>
           <td>{{$alumno->tutor->apellidoMaterno}}</td>
           <td>{{$alumno->grupo}}</td>
+          <td><a href="{{ route('verEvaluacion',[$id=$alumno->tutor->id]) }}" class="btn btn-success">Ver evaluacion</a></td>
           
           
           <td>
