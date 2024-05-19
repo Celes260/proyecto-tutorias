@@ -140,14 +140,35 @@ class TutorController extends Controller{
 
     }
 
-    public function verEvaluacion(){
+    public function verEvaluacion($id){
         $include= "vistaEvaluacion";
 
-        $A5 = pregunta::where('tutor_id',10)->where('indicadorA', 5)->count();
-        $A4 = pregunta::where('tutor_id',10)->where('indicadorA', 4)->count();
-        $A3 = pregunta::where('tutor_id',10)->where('indicadorA', 3)->count();
-        $A2 = pregunta::where('tutor_id',10)->where('indicadorA', 2)->count();
-        $A1 = pregunta::where('tutor_id',10)->where('indicadorA', 1)->count();
+        $A5 = pregunta::where('tutor_id',$id)->where('indicadorA', 5)->count();
+        $A4 = pregunta::where('tutor_id',$id)->where('indicadorA', 4)->count();
+        $A3 = pregunta::where('tutor_id',$id)->where('indicadorA', 3)->count();
+        $A2 = pregunta::where('tutor_id',$id)->where('indicadorA', 2)->count();
+        $A1 = pregunta::where('tutor_id',$id)->where('indicadorA', 1)->count();
+
+        $B5 = pregunta::where('tutor_id',$id)->where('indicadorB', 5)->count();
+        $B4 = pregunta::where('tutor_id',$id)->where('indicadorB', 4)->count();
+        $B3 = pregunta::where('tutor_id',$id)->where('indicadorB', 3)->count();
+        $B2 = pregunta::where('tutor_id',$id)->where('indicadorB', 2)->count();
+        $B1 = pregunta::where('tutor_id',$id)->where('indicadorB', 1)->count();
+
+        $C5 = pregunta::where('tutor_id',$id)->where('indicadorC', 5)->count();
+        $C4 = pregunta::where('tutor_id',$id)->where('indicadorC', 4)->count();
+        $C3 = pregunta::where('tutor_id',$id)->where('indicadorC', 3)->count();
+        $C2 = pregunta::where('tutor_id',$id)->where('indicadorC', 2)->count();
+        $C1 = pregunta::where('tutor_id',$id)->where('indicadorC', 1)->count();
+
+        $D5 = pregunta::where('tutor_id',$id)->where('indicadorD', 5)->count();
+        $D4 = pregunta::where('tutor_id',$id)->where('indicadorD', 4)->count();
+        $D3 = pregunta::where('tutor_id',$id)->where('indicadorD', 3)->count();
+        $D2 = pregunta::where('tutor_id',$id)->where('indicadorD', 2)->count();
+        $D1 = pregunta::where('tutor_id',$id)->where('indicadorD', 1)->count();
+
+
+       
 
         return view('user.panel',[
             'include'=>$include,
@@ -156,6 +177,21 @@ class TutorController extends Controller{
             'A3'=>$A3,
             'A2'=>$A2,
             'A1'=>$A1,
+            'B5'=>$B5,
+            'B4'=>$B4,
+            'B3'=>$B3,
+            'B2'=>$B2,
+            'B1'=>$B1,
+            'C5'=>$C5,
+            'C4'=>$C4,
+            'C3'=>$C3,
+            'C2'=>$C2,
+            'C1'=>$C1,
+            'D5'=>$D5,
+            'D4'=>$D4,
+            'D3'=>$D3,
+            'D2'=>$D2,
+            'D1'=>$D1,
             
             
        
