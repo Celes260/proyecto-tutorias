@@ -25,6 +25,7 @@ document.getElementById('select-carrera').addEventListener('change',function(){
     var selectedOptionGrupo = this.value;
     
      var currentUrl = window.location.href;
+     
      let ultimoCaracter = currentUrl.charAt(currentUrl.length - 1);
      let ultimoNumero = parseInt(ultimoCaracter);
 
@@ -33,7 +34,7 @@ document.getElementById('select-carrera').addEventListener('change',function(){
       currentUrl += "/" + selectedOptionGrupo;
       window.location.href = currentUrl;
     }else{
-      let nuevaUrl = currentUrl.slice(0, -1);
+      let nuevaUrl = currentUrl.replace(/\d+$/, '');
       nuevaUrl +=  selectedOptionGrupo;
       window.location.href = nuevaUrl;
 
