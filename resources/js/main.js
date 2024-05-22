@@ -52,7 +52,7 @@ document.getElementById('select-carrera-tutores').addEventListener('change',func
   urlTutores += "/" + selectedOptionCarrera;
   window.location.href = urlTutores;
 
-  
+
 
 });
               

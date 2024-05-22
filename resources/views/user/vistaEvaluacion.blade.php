@@ -169,6 +169,7 @@
             
           </div>
             
+          <a href="" class="btn btn-success">Generar reportes</a>
        
             
         </div>
