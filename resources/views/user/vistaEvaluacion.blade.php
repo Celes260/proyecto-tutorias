@@ -7,7 +7,6 @@
       function drawStuff() {
         var data = new google.visualization.arrayToDataTable([
           ['Move', 'Percentage'],
-          
           ["1", <?=$A1?>],
           ["2", <?=$A2?>],
           ["3", <?=$A3?>],
@@ -170,7 +169,7 @@
             
           </div>
             
-
+       
             
         </div>
     
