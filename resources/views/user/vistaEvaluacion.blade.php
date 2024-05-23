@@ -1,11 +1,10 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
+        google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
           ['Move', 'Percentage'],
           ["1", <?=$A1?>],
           ["2", <?=$A2?>],
@@ -13,35 +12,25 @@
           ["4", <?=$A4?>],
           ['5',<?=$A5?>]
         
-        
+
         ]);
 
         var options = {
-          width: 300,
-          legend: { position: 'none' },
-          chart: {
-            title: 'Evaluacion del tutor',
-            subtitle: 'A' },
-          axes: {
-            x: {
-              0: { side: 'top', label: ''} // Top x-axis.
-            }
-          },
-          bar: { groupWidth: "90%" }
+          title: 'Pregunta A',
+          is3D: true,
         };
 
-        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-        // Convert the Classic options to Material options.
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      };
+        var chart = new google.visualization.PieChart(document.getElementById('grafica1'));
+        chart.draw(data, options);
+        document.getElementById('g-1').value=chart.getImageURI();
+      }
     </script>
 
 <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
+        google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
           ['Move', 'Percentage'],
           
           ["1", <?=$B1?>],
@@ -50,65 +39,18 @@
           ["4", <?=$B4?>],
           ['5',<?=$B5?>]
         
-        
+
         ]);
 
         var options = {
-          width: 300,
-          legend: { position: 'none' },
-          chart: {
-            title: 'Evaluacion del tutor',
-            subtitle: 'B' },
-          axes: {
-            x: {
-              0: { side: 'top', label: ''} // Top x-axis.
-            }
-          },
-          bar: { groupWidth: "90%" }
+          title: 'Pregunta B',
+          is3D: true,
         };
 
-        var chart = new google.charts.Bar(document.getElementById('top_x_div2'));
-        // Convert the Classic options to Material options.
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-        
-      };
-    </script>
-
-<script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-          ['Move', 'Percentage'],
-          
-          ["1", <?=$C1?>],
-          ["2", <?=$C2?>],
-          ["3", <?=$C3?>],
-          ["4", <?=$C4?>],
-          ['5', <?=$C5?>]
-        
-        
-        ]);
-
-        var options = {
-          width: 300,
-          legend: { position: 'none' },
-          chart: {
-            title: 'Evaluacion del tutor',
-            subtitle: 'C' },
-          axes: {
-            x: {
-              0: { side: 'top', label: ''} // Top x-axis.
-            }
-          },
-          bar: { groupWidth: "90%" }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('top_x_div3'));
-        // Convert the Classic options to Material options.
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      };
+        var chart = new google.visualization.PieChart(document.getElementById('grafica2'));
+        chart.draw(data, options);
+        document.getElementById('g-2').value=chart.getImageURI();
+      }
     </script>
 
 <script type="text/javascript">
@@ -116,22 +58,49 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Move', 'Percentage'],
+          
+          ["1", <?=$C1?>],
+          ["2", <?=$C2?>],
+          ["3", <?=$C3?>],
+          ["4", <?=$C4?>],
+          ['5', <?=$C5?>]
+
         ]);
 
         var options = {
-          title: 'My Daily Activities',
+          title: 'Pregunta C',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('grafica3'));
+        chart.draw(data, options);
+        document.getElementById('g-3').value=chart.getImageURI();
+      }
+    </script>
+
+<script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Move', 'Percentage'],
+          
+          ["1", <?=$D1?>],
+          ["2", <?=$D2?>],
+          ["3", <?=$D3?>],
+          ["4", <?=$D4?>],
+          ['5', <?=$D5?>]
+        ]);
+
+        var options = {
+          title: 'Pregunta D',
           is3D: true,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
         chart.draw(data, options);
-        document.getElementById('grafica4').value=chart.getImageURI();
+        document.getElementById('g-4').value=chart.getImageURI();
       }
     </script>
 
@@ -147,19 +116,20 @@
 
         <div class="bx-tb">
           <div class="bx-tb-cn">
-            <div id="top_x_div" style="width: 300px; height: 90%;"></div>
-            <div id="top_x_div2" style="width: 300px; height: 90%;"></div>
-            <div id="top_x_div3" style="width: 300px; height: 90%;"></div>
+            <div id="grafica1" style="width: 500px; height: 90%;"></div>
+            <div id="grafica2" style="width: 500px; height: 90%;"></div>
+            <div id="grafica3" style="width: 500px; height: 90%;"></div>
           </div>
 
           <div class="bx-tb-cn">
-            <div id="piechart_3d" style="width: 300px; height: 300px;"></div>
+            <div id="piechart_3d" style="width: 500px; height: 300px;"></div>
             
           </div>
             
           <form method="post" action="{{ route('generarPDF') }}">
           @csrf
-            <input type="hidden" name="grafica4" id="grafica4"> 
+            <input type="hidden" name="g-1" id="g-1"> 
+            <input type="hidden" name="tutor" value="{{$id_tutor}}"> 
             <input type="submit" value="Generar PDF" class="btn btn-success">
 
           </form>

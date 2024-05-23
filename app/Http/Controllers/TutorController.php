@@ -172,6 +172,7 @@ class TutorController extends Controller{
 
         return view('user.panel',[
             'include'=>$include,
+            'id_tutor' =>$id,
             'A5'=>$A5,
             'A4'=>$A4,
             'A3'=>$A3,
@@ -200,10 +201,17 @@ class TutorController extends Controller{
     }
 
     public function reporte(Request $request){
+
+        $id = $request->input('tutor');
+        $A5 = pregunta::where('tutor_id',$id)->where('indicadorA', 5)->count();
+        $A4 = pregunta::where('tutor_id',$id)->where('indicadorA', 4)->count();
+        $A3 = pregunta::where('tutor_id',$id)->where('indicadorA', 3)->count();
+        $A2 = pregunta::where('tutor_id',$id)->where('indicadorA', 2)->count();
+        $A1 = pregunta::where('tutor_id',$id)->where('indicadorA', 1)->count();
         
-        $image = $request->input('grafica4'); 
+        $image = $request->input('g-1'); 
         $grupos = grupo::all();
-        $pdf = Pdf::loadView('user.reporte', compact('grupos','image'));
+        $pdf = Pdf::loadView('user.reporte', compact('grupos','image','A5','A4','A3','A2','A1', 'id'));
         return $pdf->stream();
     }
 

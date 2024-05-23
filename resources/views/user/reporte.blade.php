@@ -25,6 +25,11 @@
         .w-normal{
             font-weight: normal;
         }
+        .grafica{
+            margin-left: 40px;
+            width: 800px;
+            height: 400px;
+        }
 
         
     </style>
@@ -87,17 +92,18 @@
 </th>
     </tr>
     <tr>
-        <td>40</td>
-        <td>20</td>
-        <td>40</td>
-        <td>80</td>
-        <td>70</td>
+        <td>{{$A5}}</td>
+        <td>{{$A4}}</td>
+        <td>{{$A3}}</td>
+        <td>{{$A2}}</td>
+        <td>{{$A1}}</td>
     </tr>
     
 </table>
-
-<img src="{{$image}}" alt="">
-<br>
 <p><strong>Promedio de esta rubrica:</strong> 4</p>
+<img src="{{$image}}" class="grafica" alt="">
+
+<br>
+
 </body>
 </html>
