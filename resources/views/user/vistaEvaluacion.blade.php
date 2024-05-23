@@ -70,6 +70,7 @@
         var chart = new google.charts.Bar(document.getElementById('top_x_div2'));
         // Convert the Classic options to Material options.
         chart.draw(data, google.charts.Bar.convertOptions(options));
+        
       };
     </script>
 
@@ -111,40 +112,27 @@
     </script>
 
 <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-          ['Move', 'Percentage'],
-          
-          ["1", <?=$D1?>],
-          ["2", <?=$D2?>],
-          ["3", <?=$D3?>],
-          ["4", <?=$D4?>],
-          ['5',<?=$D5?>]
-        
-        
+        google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
         ]);
 
         var options = {
-          width: 300,
-          legend: { position: 'none' },
-          chart: {
-            title: 'Evaluacion del tutor',
-            subtitle: 'D' },
-          axes: {
-            x: {
-              0: { side: 'top', label: ''} // Top x-axis.
-            }
-          },
-          bar: { groupWidth: "90%" }
+          title: 'My Daily Activities',
+          is3D: true,
         };
 
-        var chart = new google.charts.Bar(document.getElementById('top_x_div4'));
-        // Convert the Classic options to Material options.
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+        document.getElementById('grafica4').value=chart.getImageURI();
+      }
     </script>
 
 
@@ -165,11 +153,16 @@
           </div>
 
           <div class="bx-tb-cn">
-            <div id="top_x_div4" style="width: 300px; height: 90%;"></div>
+            <div id="piechart_3d" style="width: 300px; height: 300px;"></div>
             
           </div>
             
-          <a href="" class="btn btn-success">Generar reportes</a>
+          <form method="post" action="{{ route('generarPDF') }}">
+          @csrf
+            <input type="hidden" name="grafica4" id="grafica4"> 
+            <input type="submit" value="Generar PDF" class="btn btn-success">
+
+          </form>
        
             
         </div>

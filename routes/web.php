@@ -52,4 +52,5 @@ Route::get('/viewActualizarGrupo/{id}', [App\Http\Controllers\GrupoController::c
 Route::get('/actualizarGrupo/{id}', [App\Http\Controllers\GrupoController::class, 'actualizarGrupo'])->name('actualizarGrupo');
 Route::get('/confirmarEvaluacion', [App\Http\Controllers\PreguntaController::class, 'confirmarEvaluacion'])->name('confirmarEvaluacion');
 Route::get('/verEvaluacion/{id}', [App\Http\Controllers\TutorController::class, 'verEvaluacion'])->name('verEvaluacion');
-Route::get('/generarReporte', [App\Http\Controllers\TutorController::class, 'generarReporte'])->name('generarReporte');
+
+Route::post('/generarPDF', [App\Http\Controllers\TutorController::class, 'reporte'])->name('generarPDF'); 

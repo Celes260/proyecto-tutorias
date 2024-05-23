@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\tutor;
 use App\Models\grupo;
 use App\Models\pregunta;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 use function PHPUnit\Framework\isEmpty;
 
 class TutorController extends Controller{
@@ -197,6 +197,14 @@ class TutorController extends Controller{
        
         ]);  
 
+    }
+
+    public function reporte(Request $request){
+        
+        $image = $request->input('grafica4'); 
+        $grupos = grupo::all();
+        $pdf = Pdf::loadView('user.reporte', compact('grupos','image'));
+        return $pdf->stream();
     }
 
 
