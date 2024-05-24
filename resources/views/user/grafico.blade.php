@@ -31,13 +31,12 @@
         // Convert the Classic options to Material options.
         chart.draw(data, google.charts.Bar.convertOptions(options));
 
-        google.visualization.events.addListener(chart, 'ready', function () {
-            var chartImageURI = chart.getImageURI();
-            document.getElementById('chart_image').src = chartImageURI;
-            alert(chartImageURI);
-            console.log(chartImageURI);
+     
+    
+            document.getElementById('chart_image').val;
+          
          
-        });
+   
       };
 
     

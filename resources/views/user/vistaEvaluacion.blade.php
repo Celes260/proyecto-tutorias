@@ -116,21 +116,25 @@
 
         <div class="bx-tb">
           <div class="bx-tb-cn">
-            <div id="grafica1" style="width: 500px; height: 90%;"></div>
-            <div id="grafica2" style="width: 500px; height: 90%;"></div>
-            <div id="grafica3" style="width: 500px; height: 90%;"></div>
+            <div id="grafica1" style="width: 500px; height: 80%;"></div>
+            <div id="grafica2" style="width: 500px; height: 80%;"></div>
+            <div id="grafica3" style="width: 500px; height: 80%;"></div>
           </div>
 
-          <div class="bx-tb-cn">
-            <div id="piechart_3d" style="width: 500px; height: 300px;"></div>
+          <div class="bx-tb-cn bx-coments">
+            <div id="piechart_3d" style="width: 500px; height: 80%;"></div>
+            <p><a href="{{ route('comentarios',[$id=$id_tutor]) }}" class="btn btn-success btn-coments">Ver comentarios de los Alumnos</a></p>
             
           </div>
             
           <form method="post" action="{{ route('generarPDF') }}">
           @csrf
             <input type="hidden" name="g-1" id="g-1"> 
+            <input type="hidden" name="g-2" id="g-2"> 
+            <input type="hidden" name="g-3" id="g-3"> 
+            <input type="hidden" name="g-4" id="g-4"> 
             <input type="hidden" name="tutor" value="{{$id_tutor}}"> 
-            <input type="submit" value="Generar PDF" class="btn btn-success">
+            <input type="submit" value="Generar PDF" class="btn btn-success ">
 
           </form>
        
