@@ -55,3 +55,5 @@ Route::get('/verEvaluacion/{id}', [App\Http\Controllers\TutorController::class, 
 
 Route::post('/generarPDF', [App\Http\Controllers\TutorController::class, 'reporte'])->name('generarPDF'); 
 Route::get('/comentarios/{id}', [App\Http\Controllers\TutorController::class, 'comentarios'])->name('comentarios'); 
+Route::get('/evaluacion', [App\Http\Controllers\PreguntaController::class, 'evaluacion'])->name('evaluacion'); 
+Route::get('/reporteCarrera', [App\Http\Controllers\PreguntaController::class, 'reporteCarrera'])->name('reporteCarrera'); 

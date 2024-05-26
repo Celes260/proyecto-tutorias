@@ -73,7 +73,7 @@
               
                 
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="{{ route('evaluacion') }}" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span>Evaluacion</span>
                     </a>

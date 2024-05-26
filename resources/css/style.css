@@ -412,3 +412,17 @@ justify-content: center;
     line-height: 1.5;
 }
 
+.bx-evaluacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-top: 20px;
+    
+}
+.boton{
+    margin-left: 50px;
+    width: 400px;
+    margin-top: 20px;
+}
+
