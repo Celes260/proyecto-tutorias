@@ -38,7 +38,7 @@
                     </a>
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                            <a href="#" class="sidebar-link " >
+                            <a href="{{ route('mostrarGrupos',['carrera'=>'Ingeniería en Sistemas Computacionales']) }}" class="sidebar-link " >
                                 Mostrar grupos
                             </a>
                            

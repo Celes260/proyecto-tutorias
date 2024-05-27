@@ -39,9 +39,9 @@
          <img src="{{ asset('img/tecnm.jpg')}}" alt="">
        </header>
 
-    <h1>Resultados de la evaluacion del tutor a nivel carrera</h1>
+    <h1>Resultados de la evaluacion de tutores del Instituto Tecnólogico Superior de Tacámbaro</h1>
     <br>
-    <p><strong>Carrera:</strong>{{$carrera}}</p>
+   
     
     <table>
     <tr class="title-row">
@@ -103,7 +103,7 @@
 </table>
 <p><strong>Promedio de respuestas:</strong> {{$promedioA}}</p>
 
-<img src="{{$image}}" class="grafica" alt="">
+
 <br>
 <br>
 <br>
@@ -146,9 +146,9 @@
 </header>
 
 <!-- Segunda hoja del reporte -->
-<h1>Resultados de la evaluacion del tutor a nivel carrera</h1>
+<h1>Resultados de la evaluacion de tutores del Instituto Tecnólogico Superior de Tacámbaro</h1>
     <br>
-    <p><strong>Carrera:</strong>{{$carrera}}</p>
+  
    
     <table>
     <tr class="title-row">
@@ -190,7 +190,7 @@
 </table>
 <p><strong>Promedio de respuestas:</strong> {{$promedioB}}</p>
 
-<img src="{{$image2}}" class="grafica" alt="imagen">
+
 <br>
 <br>
 <br>
@@ -234,8 +234,8 @@
          <img src="{{ asset('img/tecnm.jpg')}}" alt="">
 </header>
 <!-- Tercera Hoja -->
-<h1>Resultados de la evaluacion del tutor a nivel Carrera</h1>
-<p><strong>Carrera:</strong>{{$carrera}}</p>
+<h1>Resultados de la evaluacion de tutores del Instituto Tecnólogico Superior de Tacámbaro</h1>
+
     
     <table>
     <tr class="title-row">
@@ -278,7 +278,7 @@
 </table>
 <p><strong>Promedio de respuestas:</strong> {{$promedioC}}</p>
 
-<img src="{{$image3}}" class="grafica" alt="imagen">
+
 <br>
 <br>
 <br>
@@ -321,8 +321,8 @@
          <img src="{{ asset('img/tecnm.jpg')}}" alt="">
 </header>
 
-<h1>Resultados de la evaluacion del tutor a nivel Carrera</h1>
-<p><strong>Carrera:</strong>{{$carrera}}</p>
+<h1>Resultados de la evaluacion de tutores del Instituto Tecnólogico Superior de Tacámbaro</h1>
+
     
     <table>
     <tr class="title-row">
@@ -371,7 +371,7 @@
 </table>
 <p><strong>Promedio de respuestas:</strong> {{$promedioD}}</p>
 
-<img src="{{$image4}}" class="grafica" alt="imagen">
+
 
 <p><strong>El promedio general de los tutores es de: </strong>{{$promedioGeneral}}</p>
 

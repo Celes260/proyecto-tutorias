@@ -57,3 +57,6 @@ Route::post('/generarPDF', [App\Http\Controllers\TutorController::class, 'report
 Route::get('/comentarios/{id}', [App\Http\Controllers\TutorController::class, 'comentarios'])->name('comentarios'); 
 Route::get('/evaluacion', [App\Http\Controllers\PreguntaController::class, 'evaluacion'])->name('evaluacion'); 
 Route::get('/reporteCarrera', [App\Http\Controllers\PreguntaController::class, 'reporteCarrera'])->name('reporteCarrera'); 
+Route::get('/reporteInstitucion', [App\Http\Controllers\PreguntaController::class, 'reporteInstitucional'])->name('reporteInstitucion');
+Route::get('/mostrarGrupos/{carrera?}', [App\Http\Controllers\GrupoController::class, 'verGrupos'])->name('mostrarGrupos');
+Route::get('/eliminarGrupo/{id}', [App\Http\Controllers\GrupoController::class, 'eliminarGrupo'])->name('eliminarGrupo'); 

@@ -37,12 +37,11 @@ class HomeController extends Controller
              
             ]);
         }else{
-           $include= "alumnos";
+           $include= "inicio";
             return view('user.panel',[
                 'user' => $user,
-                'alumnos' => $alumnos,
                 'include'=>$include,
-                'grupos' => $grupo
+               
             ]);
         }
 

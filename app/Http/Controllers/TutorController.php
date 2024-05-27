@@ -98,12 +98,14 @@ class TutorController extends Controller{
         $tutor= tutor::find($id);
 
         if (!$tutor) {
-            return redirect()->action([UserController::class, 'vistaEliminarAlumno'])->with('message', 'Usuario no encontrado');
+            return redirect()->action([TutorController::class, 'viewMostrarTutores'])->with('message', 'Usuario no encontrado');
         }
+        grupo::where('tutor_id', $id)->update(['tutor_id' => 16]);
         $tutor->delete();
-        return redirect()->action([HomeController::class, 'index'])->with('message', 'Alumno eliminado correctamente');
+        return redirect()->action([TutorController::class, 'viewMostrarTutores'])->with('message', 'Alumno eliminado correctamente');
 
     }
+
     public function viewUpdateTutor($id){
         $tutor = tutor::find($id);
 

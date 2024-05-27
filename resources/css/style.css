@@ -283,6 +283,10 @@ a.sidebar-link:hover {
     margin-left: 50px;
     margin-top: 15px;
 }
+
+.h1-inicio{
+    text-align: center;
+}
 .inp-gp{
     border: 1px solid black;
 }
@@ -311,6 +315,10 @@ a.sidebar-link:hover {
 .p-h1{
     font-size: 15px;
     
+}
+.p-inicio{
+    
+    width: 80%;
 }
 
 .bx-registro{

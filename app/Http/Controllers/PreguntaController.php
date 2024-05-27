@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+
+use function Laravel\Prompts\alert;
+
 class PreguntaController extends Controller{
 
     public function __construct(){
@@ -86,7 +89,15 @@ class PreguntaController extends Controller{
         ->first();
 
         $cantidad=$resultA->cantidad_alumnos;
-        echo $cantidad;
+        if($cantidad==0){
+           echo "<script>alert('ningun alumno ha realizado la evaluación');</script>";
+            $include= "evaluacion";
+             return view('user.panel',[
+            'include'=>$include
+         
+             ]);  
+     
+        }
         
 
         $image = $request->input('g-1'); 
@@ -148,8 +159,81 @@ class PreguntaController extends Controller{
        
         $pdf = Pdf::loadView('user.reporteCarrera', compact('image','image2','image3','image4','A5','A4','A3','A2','A1',
         'B5','B4','B3','B2','B1', 'C5','C4','C3','C2','C1','D5','D4','D3','D2','D1',
+        'promedioA','promedioB','promedioC','promedioD','promedioGeneral','carrera'));
+        return $pdf->stream();
+    }
+
+    public function reporteInstitucional(){
+        $resultA = Pregunta::count();
+
+        $cantidad=$resultA;
+        echo $cantidad;
+  
+        
+
+        $A5 = pregunta::where('indicadorA', 5)->count();
+        $A4 = pregunta::where('indicadorA', 4)->count();
+        $A3 = pregunta::where('indicadorA', 3)->count();
+        $A2 = pregunta::where('indicadorA', 2)->count();
+        $A1 = pregunta::where('indicadorA', 1)->count();
+        $promA5 = (5/$cantidad)*$A5;
+        $promA4 = (4/$cantidad)*$A4;
+        $promA3 = (3/$cantidad)*$A3;
+        $promA2 = (2/$cantidad)*$A2;
+        $promA1 = (1/$cantidad)*$A1;
+        $promedioA=$promA1+$promA2+$promA3+$promA4+$promA5;
+
+    
+        $B5 = pregunta::where('indicadorB', 5)->count();
+        $B4 = pregunta::where('indicadorB', 4)->count();
+        $B3 = pregunta::where('indicadorB', 3)->count();
+        $B2 = pregunta::where('indicadorB', 2)->count();
+        $B1 = pregunta::where('indicadorB', 1)->count();
+
+        $promB5 = (5/$cantidad)*$B5;
+        $promB4 = (4/$cantidad)*$B4;
+        $promB3 = (3/$cantidad)*$B3;
+        $promB2 = (2/$cantidad)*$B2;
+        $promB1 = (1/$cantidad)*$B1;
+        $promedioB=$promB1+$promB2+$promB3+$promB4+$promB5;
+
+      
+        $C5 = pregunta::where('indicadorC', 5)->count();
+        $C4 = pregunta::where('indicadorC', 4)->count();
+        $C3 = pregunta::where('indicadorC', 3)->count();
+        $C2 = pregunta::where('indicadorC', 2)->count();
+        $C1 = pregunta::where('indicadorC', 1)->count();
+        $promC5 = (5/$cantidad)*$C5;
+        $promC4 = (4/$cantidad)*$C4;
+        $promC3 = (3/$cantidad)*$C3;
+        $promC2 = (2/$cantidad)*$C2;
+        $promC1 = (1/$cantidad)*$C1;
+        $promedioC=$promC1+$promC2+$promC3+$promC4+$promC5;
+
+       
+        $D5 = pregunta::where('indicadorD', 5)->count();
+        $D4 = pregunta::where('indicadorD', 4)->count();
+        $D3 = pregunta::where('indicadorD', 3)->count();
+        $D2 = pregunta::where('indicadorD', 2)->count();
+        $D1 = pregunta::where('indicadorD', 1)->count();
+        $promD5 = (5/$cantidad)*$D5;
+        $promD4 = (4/$cantidad)*$D4;
+        $promD3 = (3/$cantidad)*$D3;
+        $promD2 = (2/$cantidad)*$D2;
+        $promD1 = (1/$cantidad)*$D1;
+        $promedioD=$promD1+$promD2+$promD3+$promD4+$promD5;
+
+        $promedioGeneral = ($promedioA+$promedioB+$promedioC+$promedioD)/4;
+
+
+       
+        $pdf = Pdf::loadView('user.reporteInstitucional', compact('A5','A4','A3','A2','A1',
+        'B5','B4','B3','B2','B1', 'C5','C4','C3','C2','C1','D5','D4','D3','D2','D1',
         'promedioA','promedioB','promedioC','promedioD','promedioGeneral'));
         return $pdf->stream();
+
+
+        
     }
 
 

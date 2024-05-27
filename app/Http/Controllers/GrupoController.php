@@ -81,5 +81,31 @@ class GrupoController extends Controller{
 
 
     }
+
+    public function verGrupos($carreraa = "Ingeniería en Sistemas Computacionales"){
+        $grupos = grupo::all()->where('carrera', $carreraa);
+        $include="grupos";
+        return view('user.panel',[
+            'include'=>$include,
+            'grupos' => $grupos  
+       
+        ]);       
+
+
+    }
+
+    public function eliminarGrupo($id){
+        $grupo= grupo::find($id);
+
+        if (!$grupo) {
+            return redirect()->action([GrupoController::class, 'verGrupos'])->with('message', 'Usuario no encontrado');
+        }
+        
+        User::where('grupo_id', $id)->update(['grupo_id' => 14]);
+       
+        $grupo->delete();
+        return redirect()->action([GrupoController::class, 'verGrupos'])->with('message', 'Grupo eliminado correctamente');
+
+    }
    
 }
