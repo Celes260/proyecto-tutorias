@@ -21,7 +21,7 @@
   <div class="bx-filtro">
 
     <form method="post" action=" " class="col-md-5 formAdmAl" id="formAdmAl">
-      <select id="select-carrera-tutores" name="carrera" class="form-select col-m inp-gp" aria-label="Default select example">
+      <select id="select-carrera-grupos" name="carrera" class="form-select col-m inp-gp" aria-label="Default select example">
               <option value="">Elige una carrera</option>
               <option value="Ingeniería en Sistemas Computacionales">Ingeniería en Sistemas Computacionales</option>
               <option class="op-carrera" value="Ingeniería en innovación Agrícola">Ingeniería en innovacion Agricola</option>
@@ -32,6 +32,8 @@
     </form>
     <select name="" class="hidden" id="select-carrera"></select>
     <select name="" class="hidden" id="select-grupo"></select>
+    <select name="" class="hidden" id="select-carrera-tutores"></select>
+
 
 
     
@@ -50,6 +52,7 @@
           <th scope="col">Carrera</th>
           <th scope="col">Tutor</th>
           <th scope="col">ver evaluacion</th>
+          <th scope="col">Reporte de alumnos</th>
           
           <th scope="col">Eliminar</th>
         </tr>
@@ -64,6 +67,7 @@
           <td>{{$grupo->tutor->nombre}} {{$grupo->tutor->apellidoPaterno}} {{$grupo->tutor->apellidoMaterno}}</td>
          
           <td><a href="{{ route('verEvaluacion',[$id=$grupo->tutor->id]) }}" class="btn btn-success">Ver evaluacion</a></td>
+          <td><a href="{{ route('reporteAlumnos',[$id=$grupo->id]) }}" class="btn btn-success">Generar reporte</a></td>
           
           
           <td>

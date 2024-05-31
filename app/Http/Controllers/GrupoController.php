@@ -63,7 +63,7 @@ class GrupoController extends Controller{
     public function actualizarGrupo(Request $request, $id){
         $validate = $this->validate($request,[
             'grupo' => ['required', 'string', 'max:255', 'unique:grupos,grupo,'.$id],
-           'tutor_id' => ['required', 'max:255', 'unique:grupos,tutor_id,'.$id],
+           'tutor_id' => ['required', 'max:255'],
            'semestre' => ['required', 'max:255']
        
         ]);

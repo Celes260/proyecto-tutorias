@@ -60,3 +60,5 @@ Route::get('/reporteCarrera', [App\Http\Controllers\PreguntaController::class, '
 Route::get('/reporteInstitucion', [App\Http\Controllers\PreguntaController::class, 'reporteInstitucional'])->name('reporteInstitucion');
 Route::get('/mostrarGrupos/{carrera?}', [App\Http\Controllers\GrupoController::class, 'verGrupos'])->name('mostrarGrupos');
 Route::get('/eliminarGrupo/{id}', [App\Http\Controllers\GrupoController::class, 'eliminarGrupo'])->name('eliminarGrupo'); 
+Route::get('/reporteAlumnos/{id}', [App\Http\Controllers\UserController::class, 'reporteAlumnos'])->name('reporteAlumnos'); 
+Route::get('/iniciarEvaluacion', [App\Http\Controllers\PreguntaController::class, 'iniciarEvaluacion'])->name('iniciarEvaluacion');

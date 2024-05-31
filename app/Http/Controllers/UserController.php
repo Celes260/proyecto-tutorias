@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\grupo;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UserController extends Controller{
 
@@ -226,6 +227,16 @@ class UserController extends Controller{
         }
         $user->delete();
         return redirect()->action([HomeController::class, 'index'])->with('message', 'Alumno eliminado correctamente');
+
+    }
+
+    public function reporteAlumnos($id){
+
+        $users = User::where('grupo_id', $id)->get();
+
+        $pdf = Pdf::loadView('user.reporteAlumnos',compact('users'));
+        return $pdf->stream();
+
 
     }
 

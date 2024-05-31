@@ -167,7 +167,16 @@ class PreguntaController extends Controller{
         $resultA = Pregunta::count();
 
         $cantidad=$resultA;
-        echo $cantidad;
+        
+        if($cantidad==0){
+            echo "<script>alert('ningun alumno ha realizado la evaluación');</script>";
+             $include= "evaluacion";
+              return view('user.panel',[
+             'include'=>$include
+          
+              ]);  
+      
+         }
   
         
 
@@ -236,5 +245,12 @@ class PreguntaController extends Controller{
         
     }
 
+    public function iniciarEvaluacion(){
+        Pregunta::query()->delete();
+
+        return redirect()->route('evaluacion');
+
+
+    }
 
 }

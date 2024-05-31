@@ -16,7 +16,9 @@ var selectedOptionCarrera = "";
 document.getElementById('select-carrera').addEventListener('change',function(){
     selectedOptionCarrera = this.value;
    
-    
+
+      //importante, cuando se hoste o se cambie de hosting es muy importante actualizar 
+//esta constante url por la de su hosting, se tiene que remplazar solo lo antes a: /proyecto-tutorias
      url = "http://192.168.120.1/proyecto-tutorias/public/mostrarAlumnos/" + selectedOptionCarrera;
     window.location.href = url;
  });
@@ -48,7 +50,23 @@ document.getElementById('select-carrera').addEventListener('change',function(){
 
 document.getElementById('select-carrera-tutores').addEventListener('change',function(){
   selectedOptionCarrera = this.value;
+
+  //importante, cuando se hoste o se cambie de hosting es muy importante actualizar 
+//esta constante url por la de su hosting, se tiene que remplazar solo lo antes a: /proyecto-tutorias
   var urlTutores = "http://192.168.120.1/proyecto-tutorias/public/mostrarTutores"
+  urlTutores += "/" + selectedOptionCarrera;
+  window.location.href = urlTutores;
+
+
+
+});
+
+document.getElementById('select-carrera-grupos').addEventListener('change',function(){
+  selectedOptionCarrera = this.value;
+
+  //importante, cuando se hoste o se cambie de hosting es muy importante actualizar 
+//esta constante url por la de su hosting, se tiene que remplazar solo lo antes a: /proyecto-tutorias
+  var urlTutores = "http://192.168.120.1/proyecto-tutorias/public/mostrarGrupos"
   urlTutores += "/" + selectedOptionCarrera;
   window.location.href = urlTutores;
 
