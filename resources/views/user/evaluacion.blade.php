@@ -10,9 +10,9 @@
               <option class="op-carrera" value="Ingeniería en Industrias Administración">Ingeniería en Administracion</option>
               <option class="op-carrera" value="Ingeniería en Mecantrónica">Ingeniería en Mecantrónica</option>
       </select>
-      <input type="submit" href="" class="btn btn-success boton" value="Generar repote por Carrera">
+      <input type="submit" href="" class="btn btn-success boton" value="Generar reporte por Carrera">
     </form>
-    <a href="{{ route('reporteInstitucion') }}" class="btn btn-success boton">Generar reporte por institucion</a>
+    <a href="{{ route('reporteInstitucion') }}" class="btn btn-success boton">Generar reporte por institución</a>
     <br>
     <!-- Button trigger modal -->
 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
